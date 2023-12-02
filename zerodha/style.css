@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    box-shadow: 2px 1px 2px #eee;
+}
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    box-shadow: 2px 1px 2px #eee;
+    padding-left: 200px;
+    padding-right:200PX;
+}
+.logo img {
+    max-height: 17px;
+}
+.nav_links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color:#666;
+    cursor: pointer;
+    
+}
+.nav_links a:hover {
+        color:#387ed1;
+}
+.content{
+    margin-top: 1.5rem;
+}
+/* landing page img */
+.landing_img img {
+    max-width: 100%;
+    height: 600px;
+}
+.content {
+    padding-left: 200px;
+    padding-right:200PX;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main_content{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.main_content h4{
+    font-weight: 510;
+    font-size: 50px;
+    color: #424242;
+
+}
+.main_content p {
+    color: #424242;
+}
+.btn{
+        padding: 10px 30px;
+        text-align: center;
+        font-size: 1.2em;
+        line-height: 1.2em;
+        text-decoration: none;
+        background-color:#387ed1 ;
+        color: white;
+        border-radius: 0.2rem;
+}
+.btn:hover {
+    background-color: #424242;
+    color: #eee;
+    cursor: pointer;
+}
