@@ -64,6 +64,8 @@ body{
 .main_content p {
     color: #424242;
 }
+/* Btn and hover properties */
+
 .btn{
         padding: 10px 30px;
         text-align: center;
