@@ -5,7 +5,10 @@
 */
 
 function isAnagram(str1, str2) {
-
+let para1 = str1[0];
+for(let i =0 ; i<=str1.length ; i++) {
+  
+}
 }
 
 module.exports = isAnagram;
