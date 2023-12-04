@@ -5,10 +5,37 @@
 */
 
 function isAnagram(str1, str2) {
-let para1 = str1[0];
-for(let i =0 ; i<=str1.length ; i++) {
-  
+  // First check the length of both string
+  if (str1.length !== str2.length){
+    return false
+  }
+
+  // Now we will lowercase the string to solve case sensitive issue
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+
+  //  Counting the frequency of letter
+  const obj = {};
+  for(let i=0; i<str1.length;i++){
+ if (!obj[str1[i]]){
+        obj[str1[i]]= 1;
+ } else{
+          obj[str1[i]] ++;
+ }
+  }
+
+  //  Now decrimenting the value frequency on letter counted to corss check
+  for (let i = 0 ; i<str2.length;i++){
+        if (!obj[str2[i]]){
+           return false
+        }  
+        else {
+          obj[str2[i]] --;
+        }
+  }
+  return true
+
 }
-}
+
 
 module.exports = isAnagram;
