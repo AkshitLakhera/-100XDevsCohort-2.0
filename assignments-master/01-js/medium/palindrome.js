@@ -4,7 +4,14 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const newStr = str.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  for (let i = 0 ;i <Math.floor(newStr.length / 2);i++) {
+    if (newStr[i] !== newStr[newStr.length -i-1]) {
+      return false
+    }
+}
+return true
 }
 
-module.exports = isPalindrome;
+
+// npx jest ./tests.palindrome.test.js
