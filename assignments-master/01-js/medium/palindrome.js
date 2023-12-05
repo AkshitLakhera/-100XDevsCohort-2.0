@@ -13,5 +13,4 @@ function isPalindrome(str) {
 return true
 }
 
-
-// npx jest ./tests.palindrome.test.js
+module.exports = isPalindrome;
