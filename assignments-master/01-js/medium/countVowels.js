@@ -4,6 +4,9 @@
 
   Once you've implemented the logic, test your code by running
 */
+// Topic learned in problem
+// In JavaScript, we can use the includes() method to check if a particular value is present in an array. The includes() method returns true if the array contains the specified value; otherwise, it returns false
+// Counter case sensitivity with changing string into one case
 
 function countVowels(str) {
     // Lowercase the string
