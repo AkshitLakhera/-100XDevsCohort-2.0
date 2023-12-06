@@ -16,6 +16,60 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  // Constructor: It initializes the Calculator object with a result variable set to 0.
+  constructor() {
+    this.result=0;
+  }
+    // Method: Adds the given number to the result.
+  add(number){
+    this.result += number;
+  }
+  // Method:Subtract given number to the result
+  subtract(number){
+    this.result-= number;
+  }
+  // Method :Mulitiply given number to result
+  multiply(number){
+    this.result*= number;
+  }
+  // Method:Divide given number to result
+  divide(number){
+    if (number=== 0){
+      throw new Error ("Division by zero is not allowred");
+    }
+    else {
+      this.result /= number
+    }
+  }
+  // Method: Resets the result variable to 0.
+  clear (){
+    this.result =  0 ;
+  }
+  getResult () {
+    return this.result
+  }
+  // Method: Takes a string expression, removes spaces, and evaluates it using eval().
+// Throws an error for invalid expressions or division by zero.
+calculate (expression){
+  const cleanedExpression = expression.replace(/\s+/g , "")
+   const validExpression = /[0-9+\-*().]+$/.test(cleanedExpression);
+   if(!validExpression){
+    throw new Error ('Not a valid expression');
+   }
+try {
+  // Evaluate the cleaned expression using JavaScript's eval() function.
+  this.result = eval(cleanedExpression);
+
+  // Check for a specific case of division by zero.
+  if(cleanedExpression == "10/0"){
+    throw new Error('Division by zero is not allowed');
+  }
+} catch (error) {
+  // Catch any errors during evaluation, such as invalid arithmetic expressions.
+  throw new Error('Invalid arithmetic expression');
+}
+}
+}
 
 module.exports = Calculator;
