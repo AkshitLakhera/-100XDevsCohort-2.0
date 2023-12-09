@@ -62,10 +62,31 @@
 // });
 
 // Async function
-function mySettimeout(fn,delay){
-    setTimeout(function(){
-        console.log("Thank you harkirat bhaiya for teaching me this topic so clearly")
-    },9000)
-}
-const timeout = mySettimeout();
-console.log(timeout)
+
+// function mySettimeout(fn, delay) {
+//     return setTimeout(function () {
+//         fn(); // Call the provided function after the specified delay
+//     }, delay);
+// }
+
+// const timeout = mySettimeout(function () {
+//     console.log("Thank you Harkirat Bhaiya for teaching me this topic so clearly");
+// }, 9000);
+
+// console.log(timeout);
+
+// 
+// Promise.all is a method in JavaScript that takes an array of promises and returns a new promise. This new promise fulfills with an array of results when all of the input promises have fulfilled, or rejects with the reason of the first promise that rejects. It's useful when you have multiple asynchronous operations that can be executed concurrently, and you want to wait for all of them to complete.
+// const promise1 = new Promise(resolve => setTimeout(() => resolve('One'), 1000));
+const promise2 = new Promise(resolve => setTimeout(() => resolve('Two'), 2000));
+const promise3 = new Promise(resolve => setTimeout(() => resolve('Three'), 3000));
+
+const allPromises = Promise.all([promise1, promise2, promise3]);
+
+allPromises
+    .then(results => {
+        console.log('All promises resolved:', results);
+    })
+    .catch(error => {
+        console.error('One of the promises rejected:', error);
+    });
