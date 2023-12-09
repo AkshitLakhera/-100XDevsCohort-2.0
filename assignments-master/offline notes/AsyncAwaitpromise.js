@@ -51,3 +51,21 @@
 // Async Await
 // It is just  a new syntactic sugar  ,still uses callback and promises under the hood make code much more readiable then callback and promises
 // It usuall used on caller side not on the side where you define am async function 
+
+// Promise practice with chatgpt
+
+
+// let p = new Promise(function(resolve,reject){
+//     setTimeout(() => {
+//         resolve("hello there")
+//     }, 1000);
+// });
+
+// Async function
+function mySettimeout(fn,delay){
+    setTimeout(function(){
+        console.log("Thank you harkirat bhaiya for teaching me this topic so clearly")
+    },9000)
+}
+const timeout = mySettimeout();
+console.log(timeout)
