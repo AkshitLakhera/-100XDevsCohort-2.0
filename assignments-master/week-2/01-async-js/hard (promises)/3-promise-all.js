@@ -5,7 +5,6 @@
  */
 
 
-
 function waitOneSecond() {
     return new Promise((resolve,reject) => {
     setTimeout(function(){
@@ -13,7 +12,7 @@ function waitOneSecond() {
     },1000)
     })
     }
-    
+
     function waitTwoSecond() {
     return new Promise ((resolve,reject) => {
       setTimeout(function(){
@@ -21,7 +20,7 @@ function waitOneSecond() {
       },2000)
     })
     }
-    
+
     function waitThreeSecond() {
     return new Promise ((resolve,reject)=> {
       setTimeout(function() {
@@ -31,13 +30,12 @@ function waitOneSecond() {
     }
     async function calculateTime() {
     const startTime = new Date().getTime();
-    await Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()])
-      .then((results) => {
+   const [result,result2,result3]= await Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()])
       const endTime = new Date().getTime();
       const totalTime = endTime-startTime;
       console.log(`Total time taken to run all functions -${totalTime}`)
-      console.log(results)
-    })
+      console.log(result)
+      console.log(result2)
+      console.log(result3)
 }
 calculateTime();
-    
