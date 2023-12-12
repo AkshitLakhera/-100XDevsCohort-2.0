@@ -3,6 +3,15 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+ function sleepSync(milliseconds) {
+  const start = Date.now();
+     while (Date.now() - start < milliseconds) {}
 }
+
+function rukjaSync() {
+  console.log("started");
+  sleepSync(5000);
+  console.log("stopped");
+}
+console.log("hello");
+rukjaSync();
