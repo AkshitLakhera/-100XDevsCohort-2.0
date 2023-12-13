@@ -3,9 +3,8 @@
  * Write a function that sequentially calls all 3 of these functions in order.
  * Print out the time it takes to complete the entire operation.
  * Compare it with the results from 3-promise-all.js
- * done with assignment
- */
 
+ */
 function waitOneSecond() {
     return new Promise((resolve,reject) => {
     setTimeout(function(){
