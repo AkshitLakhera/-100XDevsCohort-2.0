@@ -35,4 +35,22 @@ app.post("/",function(req,res) {
         msg:"done"
      })
 })
+app.put("/", function(req,res) {
+    const johnKidneys = users[0].kidneys;
+    for(let i=0;i<johnKidneys.length;i++){
+        johnKidneys[i].healthy= true;
+    }
+    res.json({});
+})
+app.delete("/",function(){
+    if (!healthykidneys){
+const newkidneys=[];
+for(let i=0;users[0].kidneys.length;i++){
+    newkidneys.push({
+        healthy:true
+    })
+}
+users[0].kidneys=newkidneys;
+res.jspn({msg:'done'})}
+})
 app.listen(3000);
