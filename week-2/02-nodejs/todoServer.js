@@ -43,7 +43,60 @@
   const bodyParser = require('body-parser');
   
   const app = express();
-  
   app.use(bodyParser.json());
-  
+  // GET /todos - Retrieve all todo items
+  let todos = [];
+  app.get("/todos",(req,res) => {
+    res.status(200).json(todos)
+  })
+  app.get('/todos/:id',(req,res)=> {
+    const id = req.params.id;
+    const todo = todos.find((t) => {
+      return t.id === parseInt(id);
+      })
+      if (!todo){
+        res.status(404).send()
+      }
+      else {
+        res.status(200).json(todo)
+      }
+  })
+
+    app.post('/todos',(req,res) => {
+      const newtodo = {
+        id : Math.floor(Math.random()* 10000000),
+        title: req.body.title,
+        completed: req.body.completed,
+        description:req.body.description,
+      }
+      todos.push(newtodo);
+      res.status(201).json(newtodo)
+    })
+    app.put('/todos/:id',(req,res) => {
+    const todoindex = todos.findIndex((t) => {
+      return t.id === parseInt(req.params.id)
+    })
+    if(todoindex=== -1){
+      res.status(404).send()
+    } else {
+    todos[todoindex].title = req.body.title;
+    todos[todoindex].description = req.body.description;
+    res.json(todos[todoindex])}
+    })
+
+    app.delete('/todos/:id',(req,res) => {
+      const todoindex = todos.findIndex((t) => {
+        return t.id === parseInt(req.params.id)
+      })
+        if(todoindex=== -1){
+          res.status(404).send()
+        } 
+        else { 
+          todos.splice(todoindex,1)
+          res.status(200).send()}
+    })
+    // for routes not defined
+    app.use((req,res,next) =>{
+    res.status(404).send("not found");
+    })
   module.exports = app;
