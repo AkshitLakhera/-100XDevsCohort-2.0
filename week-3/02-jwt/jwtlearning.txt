@@ -1,0 +1,19 @@
+// Here I will be sharing things which I am learning v before  doing assignments
+# (https://jwt.io/introduction  )
+Learned about jwt , how it works? which alogrithm works for generating tokens? And its structure?And why it is more usefull as compare with others?
+JWT (JSON Web Tokens):
+
+    What it is: A compact and secure way to transmit information between parties as a JSON object. Commonly used for authentication and authorization.
+    How it works:
+        Encode: Payload (data) is encoded with a secret key (signing).
+        Send: The encoded token is sent in HTTP headers or URL parameters.
+        Verify: Server verifies the token using the same secret key.
+        Decode: If valid, payload is decoded and trusted.
+
+Zod:
+
+    What it is: A TypeScript-first schema validation library for data validation.
+    How it works:
+        Define schema: Create a schema using Zod's intuitive syntax to specify data types and constraints.
+        Validate data: Use Zod to check if input data matches the schema, catching errors early.
+        Error handling: Zod provides detailed error messages for invalid data.
