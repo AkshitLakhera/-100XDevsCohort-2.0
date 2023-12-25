@@ -19,8 +19,9 @@ router.post('/signup', async (req, res) => {
 router.post('/courses', adminMiddleware, async (req, res) => {
     // Implement course creation logic
     const {username,password} = req.header;
-    const { courseId,title,description,price,imageLink,published} = req.body;
-    const newCourse = await Admin.create({ courseId,title,description,price,imageLink,published});
+    // not writing course id because it is automatically made by react.
+    const {title,description,price,imageLink,published} = req.body;
+    const newCourse = await Course.create({title,description,price,imageLink,published});
     if (!newCourse){
         res.status(500).send("Error course can't be created")
     }else{
