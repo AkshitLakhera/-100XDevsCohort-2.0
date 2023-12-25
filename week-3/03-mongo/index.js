@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const adminRouter = require("./routes/admin")
 const userRouter = require("./routes/user");
+const { Admin, User, Course } = require('./db');
+
 
 // Middleware for parsing request bodies
 // The app.use method is used to include the imported routers (adminRouter and userRouter) as middleware
@@ -14,5 +16,5 @@ app.use("/user", userRouter)
 // This is a way to modularize your routes and keep them organized.
 
 app.listen(3000, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port 3000`);
 });

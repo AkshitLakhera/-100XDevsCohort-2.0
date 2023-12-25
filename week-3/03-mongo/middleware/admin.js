@@ -1,5 +1,5 @@
 // Accessing Admin model from database
-const {Admin} = require('../db/');
+const { Admin, User, Course } = require('../db');
 // Middleware for handling auth
 async function adminMiddleware(req, res, next) {
     // Implement admin auth logic

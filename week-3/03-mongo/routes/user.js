@@ -22,7 +22,7 @@ router.get('/courses',  async (req, res) => {
     res.send(200).json({course:[courses]});
 });
 
-app.post('/courses/:courseId', userMiddleware,async (req, res) => {
+router.post('/courses/:courseId', userMiddleware,async (req, res) => {
     // Implement course purchase logic
     try{
         const course = await Course.findOne({courseId : req.params.courseId});
@@ -53,3 +53,4 @@ router.get('/purchasedCourses', userMiddleware,async (req, res) => {
     const getUser =  await User.findOne(req.user).populate('purchasedCourses');
     res.status(200).json({purchasedCourses:getUser.purchasedCourses});
 });
+module.exports = router;
