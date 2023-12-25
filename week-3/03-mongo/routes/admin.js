@@ -18,7 +18,6 @@ router.post('/signup', async (req, res) => {
 
 router.post('/courses', adminMiddleware, async (req, res) => {
     // Implement course creation logic
-    const {username,password} = req.header;
     // not writing course id because it is automatically made by react.
     const {title,description,price,imageLink,published} = req.body;
     const newCourse = await Course.create({title,description,price,imageLink,published});
@@ -30,10 +29,9 @@ router.post('/courses', adminMiddleware, async (req, res) => {
 
 });
 
-router.get('/courses', adminMiddleware, (req, res) => {
+router.get('/courses', adminMiddleware, async (req, res) => {
     // Implement fetching all courses logic
-    const {username,password} = req.header;
-    const allCourses  =  Course.find({});
+    const allCourses  = await  Course.find({});
     if(!allCourses){
         res.status(404).send("Cannot able to retrive the courses")
     } else{
