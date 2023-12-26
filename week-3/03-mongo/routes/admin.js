@@ -19,8 +19,8 @@ router.post('/signup', async (req, res) => {
 router.post('/courses', adminMiddleware, async (req, res) => {
     // Implement course creation logic
     // not writing course id because it is automatically made by react.
-    const {title,description,price,imageLink,published} = req.body;
-    const newCourse = await Course.create({title,description,price,imageLink,published});
+    const {courseId,title,description,price,imageLink,published} = req.body;
+    const newCourse = await Course.create({courseId,title,description,price,imageLink,published});
     if (!newCourse){
         res.status(500).send("Error course can't be created")
     }else{
@@ -28,6 +28,37 @@ router.post('/courses', adminMiddleware, async (req, res) => {
     }
 
 });
+// router.post("/courses", adminMiddleware, async (req, res) => {
+//     const { title, description, price, imageLink } = req.body;
+//     if(!title || !description || !price || !imageLink){
+//       return res.status(400).send({message:"All fields are required!"})
+//     }
+//     try {
+//       const admin = await Admin.findById(req.admin._id);
+//       const course = await Course.create({
+//         title: title,
+//         description: description,
+//         price: price,
+//         imageLink: imageLink,
+//         published: true,
+//         owner: admin.username,
+//       });
+//       admin.courses.push(course._id);
+//       await admin.save();
+//       return res.status(201).send({
+//         message: "Course created successfully",
+//         courseId: course._id,
+//       });
+//     } catch (error) {
+//       return res
+//         .status(500)
+//         .send({ message: "Error creating course", error: error });
+//     }
+//   });
+
+
+
+
 
 router.get('/courses', adminMiddleware, async (req, res) => {
     // Implement fetching all courses logic
