@@ -4,16 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Interst calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<script>
-   function simpleInterst(){
-    const principal = document.getElementById("principal").value;
-    const rate = document.getElementById("rate").value;
-    const time = document.getElementById("time").value;
-    console.log(principal,rate,time);
-   }
-
-    </script>
 <body>
     <form action="">
         <input type="text" placeholder="enter principal amount" id="principal">
@@ -24,6 +16,25 @@
         <br><br>
         <input type="button" value="calculate interest" onclick="simpleInterst()">
     </form>
+    <div id="result"></div>
+    <script>
+        function simpleInterst(){
+         const principal = document.getElementById("principal").value;
+         const rate = document.getElementById("rate").value;
+         const time = document.getElementById("time").value;
+        //  console.log(principal,rate,time);
+         axios.get(`http://localhost:3000/?principal=${principal}&rate=${rate}&time=${time}`)
+        .then((response)=>{
+            const result = document.getElementById("result");
+            result.innerHTML = `
+            <p>${response.data.total}</p>
+            <p>${response.data.interest}</p>
+            `
+        }).catch((e) => {
+            console.log("Error in fetching",e)
+        })
+        }
+         </script>
     
 </body>
 </html>
