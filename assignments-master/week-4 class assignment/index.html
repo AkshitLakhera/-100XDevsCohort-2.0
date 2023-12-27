@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Interst calculator</title>
 </head>
+<script>
+   function simpleInterst(){
+    const principal = document.getElementById("principal").value;
+    const rate = document.getElementById("rate").value;
+    const time = document.getElementById("time").value;
+    console.log(principal,rate,time);
+   }
+
+    </script>
 <body>
+    <form action="">
+        <input type="text" placeholder="enter principal amount" id="principal">
+        <br><br>
+        <input type="text" placeholder="enter rate" id="rate">
+        <br><br>
+        <input type="text" placeholder="time" id="time">
+        <br><br>
+        <input type="button" value="calculate interest" onclick="simpleInterst()">
+    </form>
     
 </body>
 </html>
