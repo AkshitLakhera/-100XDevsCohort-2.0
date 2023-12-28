@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const secret = require('secret')
 function userMiddleware(req, res, next) {
     // Implement user auth logic
     // You need to check the headers and validate the user from the user DB. Check readme for the exact headers to be expected
@@ -7,7 +8,7 @@ function userMiddleware(req, res, next) {
          return res.status(401).send({ message: "Unauthorized" });
       } 
       try {
-        jwt.verify(token, process.env.JWT_KEY,(err,data)=> {
+        jwt.verify(token, secret,(err,data)=> {
             if(err){
                  return res.status(401).send({ message: "Unauthorized" });
             } else {

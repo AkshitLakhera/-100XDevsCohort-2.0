@@ -23,17 +23,19 @@ router.get('/courses',  async (req, res) => {
 });
 
 router.post('/courses/:courseId', userMiddleware,async (req, res) => {
+    const username=req.headers.username;
+    const courseId = req.params.courseId
     // Implement course purchase logic
     try{
-        const course = await Course.findOne({courseId : req.params.courseId});
+        const course = await Course.findOne({courseId});
     if(!course){
         res.status(500).send("Cannot able to find the course")
     } else{
      const updateUser = await User.findByIdAndUpdate(
-        {username:req.user.usernamme},
+        {username:username},
         {
             $push :{
-                purchasedCourses:course
+                purchasedCourses:courseId
             }
         },
         {
@@ -50,7 +52,7 @@ router.post('/courses/:courseId', userMiddleware,async (req, res) => {
 
 router.get('/purchasedCourses', userMiddleware,async (req, res) => {
     // Implement fetching purchased courses logic
-    const getUser =  await User.findOne(req.user).populate('purchasedCourses');
+    const getUser =  await User.findOne({username:req.headers.username}).populate('purchasedCourses');
     res.status(200).json({purchasedCourses:getUser.purchasedCourses});
 });
 module.exports = router;

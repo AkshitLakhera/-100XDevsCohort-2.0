@@ -20,11 +20,11 @@ router.post('/courses', adminMiddleware, async (req, res) => {
     // Implement course creation logic
     // not writing course id because it is automatically made by react.
     const {courseId,title,description,price,imageLink,published} = req.body;
-    const newCourse = await Course.create({courseId,title,description,price,imageLink,published});
+    const newCourse = await Course.create({title,description,price,imageLink,published});
     if (!newCourse){
         res.status(500).send("Error course can't be created")
     }else{
-        res.status(200).send("Congratualtions new course  created");
+        res.status(200).send("Congratualtions new course  created",courseId=newCourse_id);
     }
 
 });
