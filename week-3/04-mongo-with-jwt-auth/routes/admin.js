@@ -3,6 +3,7 @@ const adminMiddleware = require("../middleware/admin");
 const router = Router();
 const { Admin, Course } = require("../db")
 const bcrypt = require("bcrypt");
+const secret = require('../index');
 const jwt = require("jsonwebtoken");
 
 // Admin Routes
@@ -47,7 +48,7 @@ router.post('/signin', async (req, res) => {
     }
     const token = jwt.sign(
         { _id: existingUser._id,username: username},
-        process.env.JWT_KEY,
+        secret,
         {expiresIn:"1d",
     }
     )
