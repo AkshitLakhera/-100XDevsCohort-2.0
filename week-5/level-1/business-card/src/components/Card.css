@@ -1,0 +1,28 @@
+.links{
+    display: flex;
+    justify-content: space-between;
+}
+.box {
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    padding: 16px; 
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; 
+}
+.links a {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin: 8px 0;
+    border: 2px solid #0077cc; /* Border color for the button */
+    border-radius: 4px; /* Border radius for rounded corners */
+    background-color: #0077cc; /* Background color for the button */
+    color: #fff; /* Text color for the button */
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.links a:hover{
+    background-color: #005fa3; /* Darker background color on hover */
+  color: #fff; /* Lighter text color on hover */
+}

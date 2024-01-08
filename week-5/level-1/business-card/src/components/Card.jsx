@@ -1,8 +1,8 @@
 // import React from 'react'
-
+import './Card.css';
  const Card = ({name,description,interests,linkden,twitter}) => {
   return (
-    <div>
+    <div className='box'>
         <h2>{name}</h2>
         <h3>{description}</h3>
         <p>{interests}</p>
