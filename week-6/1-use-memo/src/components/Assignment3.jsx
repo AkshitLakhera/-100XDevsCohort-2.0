@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 // You have been given a list of items you shopped from the grocery store
 // You need to calculate the total amount of money you spent
-
+//used reduce method to solve this  problem 
 const Assignment3 = () => {
     const [items, setItems] = useState([
         { name: 'Chocolates', value: 10 },
@@ -12,8 +12,13 @@ const Assignment3 = () => {
     ]);
 
     // Your code starts here
-    const totalValue = 0;
+    const calculateValue = (accumulator,currentPrice) => {
+        return accumulator + currentPrice.value
+    };
     // Your code ends here
+   const  totalValue =  useMemo(() => {
+    return items.reduce(calculateValue,0);
+   },[items]) 
     return (
         <div>
             <ul>
