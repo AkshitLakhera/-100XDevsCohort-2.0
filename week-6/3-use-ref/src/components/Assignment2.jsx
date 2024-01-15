@@ -15,7 +15,7 @@ export function Assignment2() {
         // Update the number of renders in the effect
         forceRender(Math.random());
         console.log(`Component has rendered ${renderCount.current} times.`);
-    }, [forceRender]);
+    }, [renderCount.current]);
     return (
         <div >
             <p>This component has rendered {renderCount.current} times.</p>
