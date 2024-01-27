@@ -1,0 +1,14 @@
+.card{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top:5rem;
+}
+.btn{
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.btn:hover {
+  transform:scale(1.1);
+  background-color: lightgrey;
+}
