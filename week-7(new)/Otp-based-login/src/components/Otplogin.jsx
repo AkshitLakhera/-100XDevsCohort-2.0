@@ -5,7 +5,7 @@ import "../components/Otp.css"
 
 export const Otplogin = () => {
   return (
-    <div className=" main_container max-w-md mx-auto p-6 bg-white rounded-md "> {/* Increased shadow size */}
+    <div className=" main_container max-w-md mx-auto p-6 bg-white rounded-md  "> {/* Increased shadow size */}
       <div className="text-center">
         <img src={myImage} alt="Mobile image" className="max-w-full mb-4 mx-auto" />
         <h2 className="text-xl font-bold mt-4">WELCOME</h2>
