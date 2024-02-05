@@ -10,7 +10,7 @@ export const Otplogin = () => {
                 <h2 className='wlc'>WELCOME</h2>
                 <p> Enter number to continue</p>
         </div>
-        <div class="phone-input-container">
+        <div class="phone-input-container bg-slate-500">
             <label for="countryCode">Country Code</label>
             <select id="countryCode" name="countryCode">
              <option value="+1">+1 (USA)</option>
