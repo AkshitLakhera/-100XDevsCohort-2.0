@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import myImage from "../assets/mobile-security.png";
 // To format code properly npx prettier --write .
 import "../components/Otp.css"
 
 export const Otplogin = () => {
+  const [phoneNumber,setphoneNumber]=useState("");
+  const[otp,setOtp]=useState(["","","","","",""]);
+  const [showOtpInput,setShowOtpInput]=useState(false);
+  const handlePhoneNumberChange = (e) => {
+    setphoneNumber(e.target.value)
+  };
+  const handleSubmit = async() => {
+  try {
+  
+  }
+  }
   return (
     <div className=" main_container max-w-md mx-auto p-6 bg-white rounded-md  "> {/* Increased shadow size */}
       <div className="text-center">
@@ -24,6 +35,7 @@ export const Otplogin = () => {
         <div className="flex flex-col space-y-2">
           <label htmlFor="phoneNumber" className="text-sm text-gray-600">Phone Number</label>
           <input
+            onChange={handlePhoneNumberChange}
             type="tel"
             id="phoneNumber"
             name="phoneNumber"
@@ -33,7 +45,7 @@ export const Otplogin = () => {
         </div>
 
         <div className="flex justify-center">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Submit</button>
+          <button onClick={handleSubmit} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Submit</button>
         </div>
       </div>
     </div>
