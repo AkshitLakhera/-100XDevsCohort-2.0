@@ -1,12 +1,15 @@
 // app.js
 
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv=require('dotenv');
 const result=dotenv.config();
 const twilio = require('twilio');
 
 const app = express();
+// Enable CORS for all origins (for development):
+app.use(cors());
 const port = 5000;
 
 app.use(bodyParser.json());
@@ -15,7 +18,7 @@ app.use(bodyParser.json());
 
 // Twilio credentials (replace with your own credentials)
 const accountSid = 'AC96a732a9eafe549f0ab0eef134160ab0';
-const authToken = "284d38f5971722dbe359bd059c42d6c4";
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioClient = twilio(accountSid, authToken);
 const twilioPhoneNumber = "+15612773253";
 // console.log(process.env.TWILIO_AUTH_TOKEN);
