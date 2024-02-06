@@ -23,7 +23,7 @@ const otpStorage = {};
 
 // Endpoint to send otp ;
 app.post('/api/send-otp', async(req,res) => {
-    const { phoneNumber } = req.body;
+    const { phoneNumber } = req.body; // const phoneNumber = req.body.phoneNumber;
     try {
         // generate otp
          const otp = generateOTP();
@@ -36,6 +36,7 @@ app.post('/api/send-otp', async(req,res) => {
 
         })
         // Store OTP in memory
+        // Dynamically storing value with phn number associated  eg { '+1234567890': '987654' }
     otpStorage[phoneNumber] = otp;
 
     res.status(200).json({ success: true, message: 'OTP sent successfully.' });
