@@ -2,7 +2,8 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+const dotenv=require('dotenv');
+const result=dotenv.config();
 const twilio = require('twilio');
 
 const app = express();
@@ -14,10 +15,10 @@ app.use(bodyParser.json());
 
 // Twilio credentials (replace with your own credentials)
 const accountSid = 'AC96a732a9eafe549f0ab0eef134160ab0';
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+const authToken = "284d38f5971722dbe359bd059c42d6c4";
 const twilioClient = twilio(accountSid, authToken);
-const twilioPhoneNumber = process.env.PHN_NUMBER;
-console.log(process.env.TWILIO_AUTH_TOKEN);
+const twilioPhoneNumber = "+15612773253";
+// console.log(process.env.TWILIO_AUTH_TOKEN);
 // Generate a random  6 digit otp
 const generateOTP = () => {
     return Math.floor(100000 + Math.random() * 900000).toString(); // added 100000 as we want the six digit number
@@ -51,6 +52,7 @@ app.post('/api/send-otp', async(req,res) => {
   }
     }
 );
+
 
 // Endpoint to verify the OTP
 
