@@ -1,7 +1,7 @@
 {
   "name": "1-postgres-simple",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this assignment, you'll be writing a bunch of SQL queries to interact with your postgres database.",
   "main": "index.js",
   "scripts": {
     "build": "tsc -b",
