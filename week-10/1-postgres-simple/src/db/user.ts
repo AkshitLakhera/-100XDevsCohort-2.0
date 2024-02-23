@@ -33,5 +33,25 @@ catch(error) {
  * }
  */
 export async function getUser(userId: number) {
+    try {
+         await client.connect()
+         const getquery = `SELECT * FROM users WHERE userID = $1`;
+         const value = [userId];
+         const result = await client.query(getquery,value);
+         if ( result.rows.length >0){
+            console.log("User Found",{
+                username: result.rows[0].username,
+                password: result.rows[0].password, // Store password securely, not in plain text!
+                name: result.rows[0].name,
+            })
+         }
+         else {
+            console.log("No user found with the given userID")
+         }
+    }catch(error) {
+        console.error("Error in fetching data",error)
+    } finally {
+        await client.end();
+    }
     
 }
