@@ -12,3 +12,31 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model User {
+  id         Int       @id @default(autoincrement())
+  username   String   
+  email      String    @unique
+  password   String    
+  blog       Blog[]
+}
+
+model Blog {
+  id       Int        @id @default(autoincrement())
+  title    String
+  body     String
+  userId   Int  //It is here working as foreign key
+  user     User       @relation(fields:[userId],references:[id]) //Here we have one to many realtionships between user and blog .A user can have several blogs.
+
+}
+model Log {
+  id      Int    @id @default(autoincrement())
+  message String
+  meta    Json
+  level   Level
+}
+// Enums for logging error
+enum Level {
+  Info
+  Warn
+  Error
+}
